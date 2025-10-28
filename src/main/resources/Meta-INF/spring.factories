@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.shubham.Daily_Expenses_Tracking_Application.Configuration.EnvLoader
