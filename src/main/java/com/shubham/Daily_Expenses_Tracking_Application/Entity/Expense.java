@@ -4,12 +4,14 @@ import com.shubham.Daily_Expenses_Tracking_Application.Entity.Enums.ExpenseCateg
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Expense {
@@ -17,7 +19,10 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long expenseId;
     private Double expenseAmount;
+
+    @Enumerated(EnumType.STRING)
     private ExpenseCategory expenseCategory;
+
     private LocalDateTime expenseHappenAt;
 
     @ManyToOne

@@ -4,6 +4,7 @@ import com.shubham.Daily_Expenses_Tracking_Application.Entity.Enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class User {
@@ -20,7 +22,10 @@ public class User {
     private String userFullName;
     private String userEmail;
     private Long userMob;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
+
     private LocalDate createdAt;
 
     @ManyToOne
@@ -30,8 +35,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Expense> expenses;
 
-    @OneToMany(mappedBy = "userIncome")
-    private List<Income> incomes;
 
     @PrePersist
     public void createdAt() {

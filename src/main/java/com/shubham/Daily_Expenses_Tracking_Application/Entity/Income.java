@@ -3,12 +3,14 @@ package com.shubham.Daily_Expenses_Tracking_Application.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Income {
@@ -23,7 +25,4 @@ public class Income {
     @JoinColumn(name = "familyId")
     private Family familyIncome;
 
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User userIncome;
 }
