@@ -12,6 +12,6 @@ public class UserDto {
     private String userFullName;
     private String userEmail;
     private Long userMob;
-    private Role role;
+    private Role role = Role.USER;
     private LocalDate createdAt;
 }

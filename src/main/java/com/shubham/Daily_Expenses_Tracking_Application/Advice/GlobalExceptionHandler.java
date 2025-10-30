@@ -14,22 +14,22 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<String> handleGlobalException(UserNotFoundException ex){
-        return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(FamilyNotFoundException.class)
     public ResponseEntity<String> handleGlobalException(FamilyNotFoundException ex){
-        return new ResponseEntity<>("Family not found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(ExpenseNotFoundException.class)
     public ResponseEntity<String> handleGlobalException(ExpenseNotFoundException ex){
-        return new ResponseEntity<>("Expense not found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IncomeNotFoundException.class)
     public ResponseEntity<String> handleGlobalException(IncomeNotFoundException ex){
-        return new ResponseEntity<>("Income not found", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
 
 }
