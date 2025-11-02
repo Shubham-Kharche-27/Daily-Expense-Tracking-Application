@@ -1,5 +1,6 @@
 package com.shubham.Daily_Expenses_Tracking_Application.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,10 +24,11 @@ public class Family {
     private Double monthlyBudget;
     private LocalDate registeredAt;
 
-    @OneToMany(mappedBy = "family")
+    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference("users")
     private List<User> users;
 
-    @OneToMany(mappedBy = "families")
+    @OneToMany(mappedBy = "families", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Expense> expenses;
 
     @OneToMany(mappedBy = "familyIncome")

@@ -1,5 +1,6 @@
 package com.shubham.Daily_Expenses_Tracking_Application.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.shubham.Daily_Expenses_Tracking_Application.Entity.Enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -30,6 +31,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "familyId")
+    @JsonBackReference("users")
     private Family family;
 
     @OneToMany(mappedBy = "user")
